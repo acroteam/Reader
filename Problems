@@ -1,0 +1,7 @@
+Description of used techonologies:
+1) for synchroniztion I used semaphores, and their property that semop(....) operations are performed in an array order and atomically 
+
+
+Problems:
+1) Notify child that parent dead
+	I used prctl(PR_SET_PDEATHSIG, ....) to solve this problem. It is important to check if parent died before prctl was used, I compare parent_pid which was gotten before calling fork() and getppid() result
